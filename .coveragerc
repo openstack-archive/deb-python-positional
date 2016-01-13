@@ -1,0 +1,7 @@
+[run]
+branch = True
+source = positional
+omit = positional/tests/*
+
+[report]
+ignore_errors = True
