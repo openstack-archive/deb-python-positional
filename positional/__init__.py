@@ -14,7 +14,9 @@ import functools
 import inspect
 import logging
 
+import pbr.version
 
+__version__ = pbr.version.VersionInfo('python-keystoneclient').version_string()
 _logger = logging.getLogger(__name__)
 
 

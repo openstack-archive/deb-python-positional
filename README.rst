@@ -121,20 +121,18 @@ This behaviour will work with the `positional.method` and
     ...    @positional.classmethod()
     ...    def my_method(cls, pos1, kwonly1=None):
     ...        ...
-    ...
-    >>> MyClass.my_method(10)  # Ok.
-    >>> MyClass.my_method(10, 20)  # Raises exception.
-    >>> MyClass.my_method(10, kwonly1=20)  # Ok.
+
+    MyClass.my_method(10)  # Ok.
+    MyClass.my_method(10, 20)  # Raises exception.
+    MyClass.my_method(10, kwonly1=20)  # Ok.
 
 For compatibility reasons you may wish to not always raise an exception so
 a WARN mode is available. Rather than raise an exception a warning message
 will be logged:
 
-.. code:: python
-
-    >>> @positional(1, enforcement=positional.WARN):
-    ... def fn(pos1, kwonly=1):
-    ...    ...
+    @positional(1, enforcement=positional.WARN):
+    def fn(pos1, kwonly=1):
+       ...
 
 
 .. |Build Status| image:: https://travis-ci.org/morganfainberg/positional.svg?branch=master
