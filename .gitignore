@@ -21,7 +21,5 @@ doc/source/api
 # Development environment files
 .project
 .pydevproject
-# Temporary files created during test, but not removed
-examples/pki/certs/tmp*
 # Files created by releasenotes build
 releasenotes/build
