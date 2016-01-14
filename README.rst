@@ -35,6 +35,12 @@ All named parameters after `*` must be a keyword:
 To replicate this behaviour with the positional decorator you simply specify
 how many arguments may be passed positionally.
 
+First to import the decorator we typically use:
+
+.. code:: python
+
+    >> from positional import positional
+
 Replicating the Example above:
 
 .. code:: python
