@@ -15,22 +15,22 @@ import logging
 import six
 import testtools
 
-import positional
+from positional import positional
 
 
 class TestPositional(testtools.TestCase):
 
-    @positional.positional(1)
+    @positional(1)
     def no_vars(self):
         # positional doesn't enforce anything here
         return True
 
-    @positional.positional(3, positional.positional.EXCEPT)
+    @positional(3, positional.EXCEPT)
     def mixed_except(self, arg, kwarg1=None, kwarg2=None):
         # self, arg, and kwarg1 may be passed positionally
         return (arg, kwarg1, kwarg2)
 
-    @positional.positional(3, positional.positional.WARN)
+    @positional(3, positional.WARN)
     def mixed_warn(self, arg, kwarg1=None, kwarg2=None):
         # self, arg, and kwarg1 may be passed positionally, only a warning
         # is emitted
@@ -62,7 +62,7 @@ class TestPositional(testtools.TestCase):
 
         self.assertIn('takes at most 3 positional', logger_message.getvalue())
 
-    @positional.positional(enforcement=positional.positional.EXCEPT)
+    @positional(enforcement=positional.EXCEPT)
     def inspect_func(self, arg, kwarg=None):
         return (arg, kwarg)
 
@@ -72,11 +72,11 @@ class TestPositional(testtools.TestCase):
         self.assertRaises(TypeError, self.inspect_func)
         self.assertRaises(TypeError, self.inspect_func, 1, 2)
 
-    @positional.positional.classmethod(1)
+    @positional.classmethod(1)
     def class_method(cls, a, b):
         return (cls, a, b)
 
-    @positional.positional.method(1)
+    @positional.method(1)
     def normal_method(self, a, b):
         self.assertIsInstance(self, TestPositional)
         return (self, a, b)
