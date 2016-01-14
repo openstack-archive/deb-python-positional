@@ -6,7 +6,13 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   api/positional
+   api/modules
+
+Usage
+=====
+
+.. include:: ../../README.rst
+
 
 Release Notes
 =============
