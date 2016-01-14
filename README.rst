@@ -126,8 +126,8 @@ This behaviour will work with the `positional.method` and
     >>> MyClass.my_method(10, kwonly1=20)  # Ok.
 
 For compatibility reasons you may wish to not always raise an exception so
-a WARN mode is available. Rather than raise an exception a warning message
-will be logged:
+a WARN mode is available. Rather than raise an exception a warning will be
+emitted.
 
 .. code:: python
 
@@ -138,7 +138,7 @@ will be logged:
 Available modes are:
 
 - positional.EXCEPT - the default, raise an exception.
-- positional.WARN - log a warning on mistake.
+- positional.WARN - emit a warning.
 
 
 .. |Build Status| image:: https://travis-ci.org/morganfainberg/positional.svg?branch=master

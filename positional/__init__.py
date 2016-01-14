@@ -12,12 +12,11 @@
 
 import functools
 import inspect
-import logging
+import warnings
 
 import pbr.version
 
 __version__ = pbr.version.VersionInfo('python-keystoneclient').version_string()
-_logger = logging.getLogger(__name__)
 
 
 class positional(object):
@@ -43,7 +42,7 @@ class positional(object):
 
     :param enforcement: defines the way incorrect usage is reported. Currenlty
         accepts :py:attr:`positional.EXCEPT` to raise a TypeError or
-        :py:attr:`positional.WARN` to print a warning. A warning can be useful
+        :py:attr:`positional.WARN` to show a warning. A warning can be useful
         for applying to functions that are already public as a deprecation
         notice. Defaults to :py:attr:`positional.EXCEPT`.
     """
@@ -90,7 +89,7 @@ class positional(object):
                 if self._enforcement == self.EXCEPT:
                     raise TypeError(message)
                 elif self._enforcement == self.WARN:
-                    _logger.warning(message)
+                    warnings.warn(message, DeprecationWarning, stacklevel=2)
 
             return func(*args, **kwargs)
 
