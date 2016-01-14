@@ -10,9 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
+import warnings
 
-import six
 import testtools
 
 from positional import positional
@@ -46,21 +45,15 @@ class TestPositional(testtools.TestCase):
         self.assertRaises(TypeError, self.mixed_except, 1, 2, 3)
 
     def test_mixed_warn(self):
-        logger_message = six.moves.cStringIO()
-        handler = logging.StreamHandler(logger_message)
-        handler.setLevel(logging.DEBUG)
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
 
-        logger = logging.getLogger(positional.__name__)
-        level = logger.getEffectiveLevel()
-        logger.setLevel(logging.DEBUG)
-        logger.addHandler(handler)
+            self.mixed_warn(1, 2, 3)
 
-        self.addCleanup(logger.removeHandler, handler)
-        self.addCleanup(logger.setLevel, level)
+        self.assertEqual(1, len(w))
 
-        self.mixed_warn(1, 2, 3)
-
-        self.assertIn('takes at most 3 positional', logger_message.getvalue())
+        self.assertTrue(issubclass(w[0].category, DeprecationWarning))
+        self.assertIn('takes at most 3 positional', str(w[0].message))
 
     @positional(enforcement=positional.EXCEPT)
     def inspect_func(self, arg, kwarg=None):

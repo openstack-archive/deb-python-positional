@@ -2,5 +2,3 @@
 # of appearance.
 
 pbr>=1.6
-
-six>=1.9.0
