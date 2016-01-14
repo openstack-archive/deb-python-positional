@@ -2,21 +2,20 @@
 positional
 ==========
 
+A decorator which enforces only some args may be passed positionally.
+
 |PyPi|
 
 |Build Status|
 
 |Documentation Status|
 
-Intro
-=====
+The Basics
+==========
 
 `positional` provides a decorator which enforces only some args may be passed
 positionally. The idea and some of the code was taken from the oauth2 client
 of the google-api client.
-
-The Basics
-==========
 
 The decorator makes it easy to support Python 3 style key-word only
 parameters. For example, in Python 3 it is possible to write:
@@ -121,18 +120,25 @@ This behaviour will work with the `positional.method` and
     ...    @positional.classmethod()
     ...    def my_method(cls, pos1, kwonly1=None):
     ...        ...
-
-    MyClass.my_method(10)  # Ok.
-    MyClass.my_method(10, 20)  # Raises exception.
-    MyClass.my_method(10, kwonly1=20)  # Ok.
+    ...
+    >>> MyClass.my_method(10)  # Ok.
+    >>> MyClass.my_method(10, 20)  # Raises exception.
+    >>> MyClass.my_method(10, kwonly1=20)  # Ok.
 
 For compatibility reasons you may wish to not always raise an exception so
 a WARN mode is available. Rather than raise an exception a warning message
 will be logged:
 
-    @positional(1, enforcement=positional.WARN):
-    def fn(pos1, kwonly=1):
-       ...
+.. code:: python
+
+    >>> @positional(1, enforcement=positional.WARN):
+    ... def fn(pos1, kwonly=1):
+    ...     ...
+
+Available modes are:
+
+- positional.EXCEPT - the default, raise an exception.
+- positional.WARN - log a warning on mistake.
 
 
 .. |Build Status| image:: https://travis-ci.org/morganfainberg/positional.svg?branch=master
