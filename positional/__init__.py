@@ -16,7 +16,7 @@ import warnings
 
 import pbr.version
 
-__version__ = pbr.version.VersionInfo('python-keystoneclient').version_string()
+__version__ = pbr.version.VersionInfo('positional').version_string()
 
 
 class positional(object):
