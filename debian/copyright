@@ -3,7 +3,7 @@ Upstream-Name: positional
 Source: git://github.com/morganfainberg/positional.git
 
 Files: *
-Copyright: (c) 2016, Morgan Fainberg
+Copyright: (c) 2016, Morgan Fainberg <morgan.fainberg@gmail.com>
 License: Apache-2
 
 Files: debian/*
