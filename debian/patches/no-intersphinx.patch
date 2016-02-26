@@ -1,0 +1,16 @@
+Description: No intersphinx
+ This is doing network access during build: disbling it.
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2016-02-26
+
+--- python-positional-1.0.1.orig/doc/source/conf.py
++++ python-positional-1.0.1/doc/source/conf.py
+@@ -40,7 +40,6 @@ extensions = [
+     'sphinx.ext.autodoc',
+     'sphinx.ext.todo',
+     'sphinx.ext.coverage',
+-    'sphinx.ext.intersphinx',
+ ]
+ 
+ # Add any paths that contain templates here, relative to this directory.

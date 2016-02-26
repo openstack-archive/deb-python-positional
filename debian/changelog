@@ -1,0 +1,5 @@
+python-positional (1.0.1-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #XXXXXX)
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 26 Feb 2016 23:13:02 +0800

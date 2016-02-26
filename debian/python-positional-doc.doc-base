@@ -1,0 +1,9 @@
+Document: python-positional-doc
+Title: positional Documentation
+Author: N/A
+Abstract: Sphinx documentation for positional
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-positional-doc/html/index.html
+Files: /usr/share/doc/python-positional-doc/html/*
