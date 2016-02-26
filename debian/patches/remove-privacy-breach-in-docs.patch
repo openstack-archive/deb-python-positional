@@ -1,0 +1,32 @@
+Description: Removes privacy breanch in docs
+Author: Thomas Goirand <zigo@debian.org>
+Bug-Debian: https://bugs.debian.org/816005
+Forwarded: not-needed
+Last-Update: 2016-02-26
+
+--- python-positional-1.0.1.orig/README.rst
++++ python-positional-1.0.1/README.rst
+@@ -4,12 +4,6 @@ positional
+ 
+ A decorator which enforces only some args may be passed positionally.
+ 
+-|PyPi|
+-
+-|Build Status|
+-
+-|Documentation Status|
+-
+ The Basics
+ ==========
+ 
+@@ -146,10 +140,3 @@ Available modes are:
+ - positional.EXCEPT - the default, raise an exception.
+ - positional.WARN - emit a warning.
+ 
+-
+-.. |Build Status| image:: https://travis-ci.org/morganfainberg/positional.svg?branch=master
+-   :target: https://travis-ci.org/morganfainberg/positional
+-.. |Documentation Status| image:: https://readthedocs.org/projects/positional/badge/?version=latest
+-   :target: http://positional.readthedocs.org/en/latest/?badge=latest
+-.. |PyPi| image:: https://badge.fury.io/py/positional.png
+-   :target: http://badge.fury.io/py/positional
