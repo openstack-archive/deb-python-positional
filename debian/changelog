@@ -1,3 +1,9 @@
+python-positional (1.0.1-2) unstable; urgency=medium
+
+  * Added {python3-,}subunit as build-depends-indep (Closes: #816263).
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 29 Feb 2016 11:26:15 +0000
+
 python-positional (1.0.1-1) unstable; urgency=medium
 
   * Initial release. (Closes: #816005)
