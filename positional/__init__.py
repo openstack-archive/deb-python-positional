@@ -10,11 +10,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import functools
 import inspect
 import warnings
 
 import pbr.version
+import wrapt
 
 __version__ = pbr.version.VersionInfo('positional').version_string()
 
@@ -76,14 +76,21 @@ class positional(object):
 
         plural = '' if self._max_positional_args == 1 else 's'
 
-        @functools.wraps(func)
-        def inner(*args, **kwargs):
-            if len(args) > self._max_positional_args:
+        @wrapt.decorator
+        def inner(wrapped, instance, args, kwargs):
+
+            # If called on an instance, adjust args len for the 'self'
+            # parameter.
+            args_len = len(args)
+            if instance:
+                args_len += 1
+
+            if args_len > self._max_positional_args:
                 message = ('%(name)s takes at most %(max)d positional '
                            'argument%(plural)s (%(given)d given)' %
-                           {'name': func.__name__,
+                           {'name': wrapped.__name__,
                             'max': self._max_positional_args,
-                            'given': len(args),
+                            'given': args_len,
                             'plural': plural})
 
                 if self._enforcement == self.EXCEPT:
@@ -91,6 +98,6 @@ class positional(object):
                 elif self._enforcement == self.WARN:
                     warnings.warn(message, DeprecationWarning, stacklevel=2)
 
-            return func(*args, **kwargs)
+            return wrapped(*args, **kwargs)
 
-        return inner
+        return inner(func)
