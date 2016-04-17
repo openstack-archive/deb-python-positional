@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import inspect
 import warnings
 
 import testtools
@@ -81,3 +82,15 @@ class TestPositional(testtools.TestCase):
     def test_normal_method(self):
         self.assertEqual((self, 1, 2), self.normal_method(1, b=2))
         self.assertRaises(TypeError, self.normal_method, 1, 2)
+
+    def test_argspec_preserved(self):
+
+        @positional()
+        def f_wrapped(my_arg=False):
+            return my_arg
+
+        def f_not_wrapped(my_arg=False):
+            return my_arg
+
+        self.assertEqual(inspect.getargspec(f_not_wrapped),
+                         inspect.getargspec(f_wrapped))
