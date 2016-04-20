@@ -22,7 +22,7 @@ parameters. For example, in Python 3 it is possible to write:
 
 .. code:: python
 
-    >>> def fn(pos1, *, kwonly1 kwonly=None):
+    >>> def fn(pos1, *, kwonly1, kwonly2=None):
     ...     ...
 
 All named parameters after `*` must be a keyword:
