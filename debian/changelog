@@ -1,3 +1,9 @@
+python-positional (1.0.1-3) UNRELEASED; urgency=medium
+
+  * d/rules: Changed UPSTREAM_GIT protocol to https
+
+ -- Ondřej Nový <novy@ondrej.org>  Thu, 19 May 2016 21:28:30 +0200
+
 python-positional (1.0.1-2) unstable; urgency=medium
 
   * Added {python3-,}subunit as build-depends-indep (Closes: #816263).
