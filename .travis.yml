@@ -1,4 +1,7 @@
 language: python
+python:
+    # See https://github.com/travis-ci/travis-ci/issues/4794
+    - 3.5
 install:
   - pip install tox
   - pip install -r requirements.txt -r test-requirements.txt
@@ -8,3 +11,9 @@ env:
   - TOXENV=pep8
   - TOXENV=py27
   - TOXENV=py34
+  - TOXENV=py35
+matrix:
+  include:
+    - python: 3.5
+      env:
+        - TOXENV=py35
