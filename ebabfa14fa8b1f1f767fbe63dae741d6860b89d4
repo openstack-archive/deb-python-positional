@@ -1,0 +1,8 @@
+Code-Review+2: Ivan Udovichenko <iudovichenko@mirantis.com>
+Workflow+1: Ivan Udovichenko <iudovichenko@mirantis.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Sat, 03 Sep 2016 08:55:29 +0000
+Reviewed-on: https://review.openstack.org/365179
+Project: openstack/deb-python-positional
+Branch: refs/heads/debian/newton
